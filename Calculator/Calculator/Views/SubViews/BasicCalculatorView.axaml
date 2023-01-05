@@ -1,0 +1,227 @@
+<UserControl
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d"
+    x:Class="Calculator.Views.SubViews.BasicCalculatorView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:subViewModels="clr-namespace:Calculator.ViewModels.SubViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.DataContext>
+        <!--
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        -->
+        <subViewModels:BasicCalculatorViewModel />
+    </Design.DataContext>
+    <Viewbox>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <TextBox
+                FontSize="80"
+                Grid.ColumnSpan="4"
+                Height="200"
+                HorizontalAlignment="Right"
+                HorizontalContentAlignment="Center"
+                IsReadOnly="True"
+                Text="{Binding Result}"
+                VerticalContentAlignment="Center"
+                Width="800"
+                x:Name="ResultTextBox" />
+            <Button
+                Command="{Binding AddDigitCommand}"
+                CommandParameter="7"
+                Content="7"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="0"
+                Grid.Row="1"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddDigitCommand}"
+                CommandParameter="8"
+                Content="8"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="1"
+                Grid.Row="1"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddDigitCommand}"
+                CommandParameter="9"
+                Content="9"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="2"
+                Grid.Row="1"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddOperatorCommand}"
+                CommandParameter="+"
+                Content="+"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="3"
+                Grid.Row="1"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddDigitCommand}"
+                CommandParameter="4"
+                Content="4"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="0"
+                Grid.Row="2"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddDigitCommand}"
+                CommandParameter="5"
+                Content="5"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="1"
+                Grid.Row="2"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddDigitCommand}"
+                CommandParameter="6"
+                Content="6"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="2"
+                Grid.Row="2"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddOperatorCommand}"
+                CommandParameter="-"
+                Content="-"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="3"
+                Grid.Row="2"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddDigitCommand}"
+                CommandParameter="1"
+                Content="1"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="0"
+                Grid.Row="3"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddDigitCommand}"
+                CommandParameter="2"
+                Content="2"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="1"
+                Grid.Row="3"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddDigitCommand}"
+                CommandParameter="3"
+                Content="3"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="2"
+                Grid.Row="3"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddOperatorCommand}"
+                CommandParameter="*"
+                Content="*"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="3"
+                Grid.Row="3"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddDigitCommand}"
+                CommandParameter="0"
+                Content="0"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Grid.Row="4"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddDecimalPointCommand}"
+                Content="."
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="2"
+                Grid.Row="4"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding CalculateResultCommand}"
+                Content="="
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="1"
+                Grid.Row="4"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+            <Button
+                Command="{Binding AddOperatorCommand}"
+                CommandParameter="/"
+                Content="/"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="3"
+                Grid.Row="4"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+        </Grid>
+    </Viewbox>
+
+
+
+
+
+
+</UserControl>
