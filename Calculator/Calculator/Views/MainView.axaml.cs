@@ -16,9 +16,4 @@ public partial class MainView : UserControl
     {
         AvaloniaXamlLoader.Load(this);
     }
-
-    private void MenuItem_OnClick(object? sender, RoutedEventArgs e)
-    {
-        throw new System.NotImplementedException();
-    }
 }

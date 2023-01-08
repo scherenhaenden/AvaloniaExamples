@@ -1,20 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
         <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
         <WasmMainJSPath>AppBundle\main.js</WasmMainJSPath>
         <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-        <WasmExtraFilesToDeploy Include="AppBundle\**"/>
+        <WasmExtraFilesToDeploy Include="AppBundle\**" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Avalonia.Web" Version="$(AvaloniaVersion)"/>
+        <PackageReference Include="Avalonia.Web" Version="$(AvaloniaVersion)" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Calculator\Calculator.csproj"/>
+        <ProjectReference Include="..\Calculator\Calculator.csproj" />
     </ItemGroup>
 </Project>

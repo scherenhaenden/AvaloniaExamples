@@ -1,11 +1,442 @@
 <UserControl
-    d:DesignHeight="450"
-    d:DesignWidth="800"
     mc:Ignorable="d"
     x:Class="Calculator.Views.SubViews.ScientificCalculatorView"
     xmlns="https://github.com/avaloniaui"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:subViewModels="clr-namespace:Calculator.ViewModels.SubViewModels"
+    xmlns:subViews="clr-namespace:Calculator.Views.SubViews"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    Scientific Calculator!
+    <Design.DataContext>
+        <!--
+            This only sets the DataContext for the previewer in an IDE,
+            to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs)
+        -->
+        <subViewModels:ScientificCalculatorViewModel />
+    </Design.DataContext>
+    <Viewbox>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <subViews:BasicCalculatorView
+                DataContext="{Binding BasicDataContext}"
+                Grid.Column="0"
+                Grid.Row="0" />
+
+            <Grid Grid.Column="1" Grid.Row="0">
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Content="sin"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="0"
+                    Grid.Row="0"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="cos"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="tan"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="2"
+                    Grid.Row="0"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="sinh"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="3"
+                    Grid.Row="0"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="cosh"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="4"
+                    Grid.Row="0"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="tanh"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="5"
+                    Grid.Row="0"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="asin"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="acos"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="atan"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="2"
+                    Grid.Row="1"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="asinh"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="3"
+                    Grid.Row="1"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="acosh"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="4"
+                    Grid.Row="1"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="atanh"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="5"
+                    Grid.Row="1"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="log"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="0"
+                    Grid.Row="2"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="ln"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="1"
+                    Grid.Row="2"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="e^x"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="2"
+                    Grid.Row="2"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="10^x"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="3"
+                    Grid.Row="2"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="x^2"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="4"
+                    Grid.Row="2"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="x^3"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="5"
+                    Grid.Row="2"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="x^y"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="0"
+                    Grid.Row="3"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="2^x"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="1"
+                    Grid.Row="3"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="3^x"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="2"
+                    Grid.Row="3"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="y^x"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="3"
+                    Grid.Row="3"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="x^1/y"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="4"
+                    Grid.Row="3"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="x^1/3"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="5"
+                    Grid.Row="3"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="x^1/2"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="0"
+                    Grid.Row="4"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="1/x"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="1"
+                    Grid.Row="4"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="x!"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="2"
+                    Grid.Row="4"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="Rand"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="3"
+                    Grid.Row="4"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="Deg"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="4"
+                    Grid.Row="4"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="Rad"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="5"
+                    Grid.Row="4"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="√"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="0"
+                    Grid.Row="5"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="∛"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="1"
+                    Grid.Row="5"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="y√x"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="2"
+                    Grid.Row="5"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="x²"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="3"
+                    Grid.Row="5"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="x³"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="4"
+                    Grid.Row="5"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="xⁿ"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="5"
+                    Grid.Row="5"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="eⁿ"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="0"
+                    Grid.Row="6"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="10ⁿ"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="1"
+                    Grid.Row="6"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="n!"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="2"
+                    Grid.Row="6"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="π"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="3"
+                    Grid.Row="6"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+                <Button
+                    Content="e"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="4"
+                    Grid.Row="6"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+
+                <Button
+                    Content="RandInt"
+                    FontSize="{Binding FontSizingNumber}"
+                    Grid.Column="5"
+                    Grid.Row="6"
+                    Height="{Binding ButtonSizingNumber}"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Width="{Binding ButtonSizingNumber}" />
+
+
+
+            </Grid>
+
+        </Grid>
+
+
+    </Viewbox>
 </UserControl>

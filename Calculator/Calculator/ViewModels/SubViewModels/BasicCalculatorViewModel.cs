@@ -9,7 +9,10 @@ public class BasicCalculatorViewModel: ViewModelBase
 {
     private float _accumulativeNumber = 0;
     private float _secondNumber = 0;
+    private float _lastNumberIntroduced = 0;
     private string _lastOperator = "";
+    private bool _setNewNumber = false;
+    
     
     public int ButtonSizingNumber { get; set; } = 200;
     public int FontSizingNumber { get; set; } = 100;
@@ -28,26 +31,41 @@ public class BasicCalculatorViewModel: ViewModelBase
         AddDigitCommand = ReactiveCommand.Create<string>(number =>
 
             {
-                if(_accumulativeNumber == 0)
-                {
-                    Result = "0";
-                    
-                }
-               
-                
-                if (_lastOperator != "")
-                {
-                    Result = "0";
-                }
-                
-                if(Result == "0")
+                if(_setNewNumber)
                 {
                     Result = number;
+                    _setNewNumber = false;
+                }
+                else
+                {
+                    if(Result == "0")
+                    {
+                        Result = number;
+                    }
+                    else
+                    {
+                        Result += number;
+                    }
+                }
+                _lastNumberIntroduced = float.Parse(Result);
+               
+                
+                /*if (_lastOperator != "")
+                {
+                    Result = "0";
+                }*/
+                
+                /*if(Result == "0")
+                {
+                    Result = number;
+                    //_accumulativeNumber = float.Parse(Result);
                 }
                 else
                 {
                     Result += number;
-                }
+                    //_accumulativeNumber = float.Parse(Result);
+                }*/
+                _setNewNumber = false;
                 
                 
                
@@ -57,36 +75,23 @@ public class BasicCalculatorViewModel: ViewModelBase
         
         AddOperatorCommand = ReactiveCommand.Create<string>(operatorString =>
             {
-                
-                if (_lastOperator != "")
-                {
-                    _secondNumber = float.Parse(Result);
-                    
-                    _accumulativeNumber = Calculate(_accumulativeNumber, _secondNumber, _lastOperator);
-                    _secondNumber = 0;
-                    _lastOperator = operatorString;
-                    Result = _accumulativeNumber.ToString();
-                }
-                else
-                {
-                    _accumulativeNumber = float.Parse(Result);
-                    _lastOperator = operatorString;
-                    //Result = "0";
-                }
-                /*_lastOperator = operatorString;
-                //Result = "0";
-                if (_accumulativeNumber != 0)
-                {
-                }
-                else
-                {
-                    _accumulativeNumber = float.Parse(Result);
-                    Result = "0";
-                }
-                
-
                 _lastOperator = operatorString;
-                result = "0";*/
+                if(_accumulativeNumber == 0)
+                {
+                    _accumulativeNumber = _lastNumberIntroduced;
+                }
+                else
+                {
+                    if (operatorString == "=")
+                    {
+                        operatorString = _lastOperator;
+                    }
+                    _accumulativeNumber = Calculate(_accumulativeNumber, _lastNumberIntroduced, operatorString);
+                    Result = _accumulativeNumber.ToString();
+                   // _secondNumber = _accumulativeNumber;
+                }
+                _setNewNumber = true;
+             
             });
         
             CalculateResultCommand = ReactiveCommand.Create(() =>
@@ -139,6 +144,5 @@ public class BasicCalculatorViewModel: ViewModelBase
     
     // CalculateResultCommand
     public ReactiveCommand<Unit, Unit> CalculateResultCommand { get; }
-    
-
+    public object ClearCommand { get; }
 }

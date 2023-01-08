@@ -4,6 +4,7 @@
     mc:Ignorable="d"
     x:Class="Calculator.Views.SubViews.BasicCalculatorView"
     xmlns="https://github.com/avaloniaui"
+    xmlns:atomicViews="clr-namespace:Calculator.Views.AtomicViews"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:subViewModels="clr-namespace:Calculator.ViewModels.SubViewModels"
@@ -25,6 +26,7 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -186,7 +188,8 @@
                 VerticalContentAlignment="Center"
                 Width="{Binding ButtonSizingNumber}" />
             <Button
-                Command="{Binding AddDecimalPointCommand}"
+                Command="{Binding AddDigitCommand}"
+                CommandParameter="."
                 Content="."
                 FontSize="{Binding FontSizingNumber}"
                 Grid.Column="2"
@@ -216,12 +219,20 @@
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 Width="{Binding ButtonSizingNumber}" />
+
+            <Button
+                Command="{Binding AddOperatorCommand}"
+                CommandParameter="C"
+                Content="C"
+                FontSize="{Binding FontSizingNumber}"
+                Grid.Column="4"
+                Grid.Row="1"
+                Height="{Binding ButtonSizingNumber}"
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Width="{Binding ButtonSizingNumber}" />
+
+
         </Grid>
     </Viewbox>
-
-
-
-
-
-
 </UserControl>
